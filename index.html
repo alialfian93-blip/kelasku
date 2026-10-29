@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Presentasi Bahasa Indonesia Kelas VI - Teks Sastra</title>
+<style>
+:root{--navy:#17324d;--blue:#2878b5;--teal:#19a7a1;--gold:#ffd166;--ink:#213547;--paper:#fffdf8;--muted:#607387}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#eaf1f7}
+body{overflow:hidden}
+.deck{height:100%;width:100%;display:flex;align-items:stretch;justify-content:stretch;padding:0}
+.slide{display:none;position:relative;width:100vw;height:100vh;height:100dvh;min-height:0;background:var(--paper);border-radius:0;box-shadow:none;padding:clamp(16px,3.2vh,34px) clamp(20px,4.2vw,64px) clamp(54px,8vh,78px);overflow:hidden}
+.slide.active{display:flex;flex-direction:column;gap:clamp(8px,1.35vh,16px)}
+.slide.cover{background:linear-gradient(135deg,#17324d,#2878b5 58%,#19a7a1);color:white}
+.cover:after{content:"";position:absolute;width:320px;height:320px;border-radius:50%;right:-70px;top:-80px;background:#ffffff14;box-shadow:-100px 400px 0 35px #ffffff0c}
+.kicker{font-size:clamp(14px,1.25vw,19px);font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-bottom:2px}
+.cover .kicker{color:var(--gold)}
+h1{font-size:clamp(42px,5.4vw,76px);line-height:1.06;margin:10px 0 20px;max-width:1050px}
+h2{font-size:clamp(30px,3.1vw,48px);line-height:1.1;margin:0 0 clamp(10px,1.6vh,18px);color:var(--navy)}
+h3{font-size:clamp(21px,1.8vw,29px);margin:0 0 10px;color:var(--navy)}
+p,li{font-size:clamp(18px,1.65vw,25px);line-height:1.42}
+p{margin:8px 0 12px}
+ul,ol{padding-left:1.3em;margin:4px 0}
+li{margin:8px 0}
+.sub{font-size:clamp(23px,2.2vw,32px);max-width:950px;line-height:1.45}
+.meta{margin-top:clamp(24px,4vh,48px);display:flex;flex-wrap:wrap;gap:12px}
+.pill{display:inline-block;padding:11px 16px;border-radius:999px;background:#ffffff20;border:1px solid #ffffff45;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,1.5vw,22px)}
+.card{border-radius:18px;padding:clamp(18px,2vw,28px);background:#edf7fb;border:1px solid #d8e9f1}
+.card.teal{background:#e8f8f4}.card.gold{background:#fff6d9}.card.pink{background:#fff0eb}
+.icon{font-size:42px;margin-bottom:10px}
+.small{font-size:clamp(17px,1.45vw,21px);color:var(--muted);line-height:1.45}
+.callout{background:#fff4cc;border-left:6px solid #f0b429;padding:clamp(14px,1.6vw,22px) clamp(16px,2vw,26px);border-radius:14px;margin-top:8px;font-size:clamp(18px,1.55vw,24px);line-height:1.4}
+.story{font-size:clamp(18px,1.45vw,22px);line-height:1.45}
+.story p{margin:0 0 12px;font-size:inherit}
+.scene{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:10px 0 16px}
+.scene div{border-radius:16px;min-height:92px;padding:14px;background:linear-gradient(135deg,#e3f5f1,#eaf2ff);display:flex;align-items:center;gap:14px}
+.scene b{font-size:clamp(18px,1.5vw,22px)}
+.scene span{font-size:42px}
+table{border-collapse:collapse;width:100%;font-size:clamp(18px,1.55vw,23px);margin:8px 0 16px}
+th,td{padding:clamp(9px,1.2vh,14px);border-bottom:1px solid #d8e3eb;text-align:left;vertical-align:top}
+th{background:#e7f2f8;color:var(--navy)}
+.question{padding:10px 0;border-bottom:1px solid #e0e8ed}
+.question p{font-size:clamp(16px,1.25vw,20px);line-height:1.35;margin:0 0 6px}
+.answerline{height:20px;border-bottom:1px dashed #9aabb9;margin:5px 0}
+.footer{margin-top:auto;padding-top:10px;display:flex;justify-content:space-between;align-items:center;gap:10px;color:#718396;font-size:15px}
+.cover .footer{color:#ffffffbd}
+.controls{position:fixed;bottom:10px;left:0;right:0;display:flex;justify-content:center;align-items:center;gap:12px;z-index:10}
+button{border:0;border-radius:999px;padding:12px 20px;font-size:15px;font-weight:700;cursor:pointer;background:var(--navy);color:white;box-shadow:0 5px 18px #17324d22}
+button:disabled{opacity:.35;cursor:not-allowed}
+#counter{font-size:14px;font-weight:700;color:var(--navy);background:#fff;padding:10px 14px;border-radius:999px}
+.note{font-size:17px;color:var(--muted)}
+@media(max-width:650px){.slide{padding:14px 14px 58px;gap:8px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.scene{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.card{padding:10px;border-radius:12px}.icon{font-size:25px}.scene span{font-size:25px}.scene div{min-height:64px;padding:7px;gap:6px}h1{font-size:clamp(34px,8vw,48px)}h2{font-size:clamp(23px,5.8vw,32px);margin-bottom:6px}h3{font-size:clamp(16px,4vw,20px);margin-bottom:5px}p,li{font-size:clamp(14px,3.5vw,17px);line-height:1.32}li{margin:5px 0}.kicker{font-size:12px;margin-bottom:0}.sub{font-size:clamp(18px,4.5vw,23px)}.meta{margin-top:12px;gap:6px}.pill{font-size:12px;padding:7px 9px}.small{font-size:12px}.callout{font-size:14px;padding:9px 11px;margin-top:4px}.story{font-size:clamp(14px,3.5vw,17px);line-height:1.35}.story p{margin-bottom:7px}table{font-size:clamp(13px,3.2vw,16px);margin:4px 0 8px}th,td{padding:5px}.question{padding:5px 0}.question p{font-size:clamp(12px,3vw,15px)}.answerline{height:12px;margin:3px 0}.controls{bottom:5px;gap:5px}button{padding:9px 11px;font-size:12px}#counter{font-size:12px;padding:8px}.footer{padding-top:4px;font-size:10px}.note{font-size:12px}}
+@media print{body{overflow:visible;background:white}.deck{display:block;padding:0}.slide,.slide.active{display:flex!important;width:100%;height:100vh;min-height:0;border-radius:0;box-shadow:none;page-break-after:always;overflow:hidden}.controls{display:none}}
+</style>
+</head>
+<body>
+<main class="deck">
+<section class="slide cover active">
+  <div class="kicker">Bahasa Indonesia • Kelas VI A</div>
+  <h1>Cerita-Cerita<br>di Sekitar Kita</h1>
+  <p class="sub">Pokok Materi: <b>Teks Sastra</b></p>
+  <p class="sub">Belajar menyimak cerita, menemukan informasi penting, dan memahami pesan di dalamnya.</p>
+  <div class="meta"><span class="pill">SD Negeri 3 Terbanggi Subing</span><span class="pill">1 Pertemuan • 2 × 35 menit</span></div>
+  <div class="footer"><span>Presentasi materi pembelajaran</span><span>01</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">Tujuan Pembelajaran</div><h2>Apa yang akan kita pelajari?</h2>
+  <div class="grid">
+    <div class="card"><div class="icon">📚</div><h3>Mengenal teks sastra</h3><p>Menjelaskan teks sastra dengan bahasa sendiri.</p></div>
+    <div class="card teal"><div class="icon">👂</div><h3>Menyimak cerita</h3><p>Mendengarkan cerita bergambar dengan saksama.</p></div>
+    <div class="card gold"><div class="icon">🔎</div><h3>Menemukan informasi</h3><p>Mengidentifikasi tokoh, latar, peristiwa, dan alasan.</p></div>
+    <div class="card pink"><div class="icon">💡</div><h3>Menemukan amanat</h3><p>Menyampaikan pesan cerita dan menghubungkannya dengan kehidupan sehari-hari.</p></div>
+  </div>
+  <div class="footer"><span>Simak • Pahami • Ceritakan kembali</span><span>02</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">Materi 1</div><h2>Apa itu teks sastra?</h2>
+  <p><b>Teks sastra</b> adalah teks yang menggunakan bahasa secara kreatif untuk menyampaikan cerita, pengalaman, perasaan, imajinasi, atau pesan kepada pembaca dan pendengar.</p>
+  <div class="grid">
+    <div class="card"><h3>📖 Cerita pendek</h3><p>Cerita singkat yang berpusat pada suatu peristiwa.</p></div>
+    <div class="card teal"><h3>🪄 Dongeng</h3><p>Cerita khayalan yang biasanya mengandung pesan moral.</p></div>
+    <div class="card gold"><h3>🐢 Fabel</h3><p>Cerita dengan tokoh hewan yang berperilaku seperti manusia.</p></div>
+    <div class="card pink"><h3>🏞️ Legenda dan puisi</h3><p>Legenda berkaitan dengan asal-usul; puisi mengungkapkan pikiran dan perasaan melalui pilihan kata.</p></div>
+  </div>
+  <div class="footer"><span>Teks sastra dapat menghibur sekaligus memberi pelajaran.</span><span>03</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">Materi 2</div><h2>Mengenal teks sastra bergambar</h2>
+  <p>Teks sastra bergambar adalah cerita yang disertai ilustrasi untuk membantu kita membayangkan tokoh, tempat, suasana, atau kejadian.</p>
+  <div class="scene">
+    <div><span>👧🏻</span><div><b>Tokoh</b><br><span class="small">Siapa yang ada dalam cerita?</span></div></div>
+    <div><span>🌳</span><div><b>Latar</b><br><span class="small">Di mana dan kapan cerita terjadi?</span></div></div>
+    <div><span>🎬</span><div><b>Peristiwa</b><br><span class="small">Apa yang terjadi?</span></div></div>
+    <div><span>💛</span><div><b>Amanat</b><br><span class="small">Apa pesan cerita?</span></div></div>
+  </div>
+  <div class="callout"><b>Ingat!</b> Gunakan gambar sebagai petunjuk, tetapi cocokkan jawaban dengan cerita yang didengar. Jangan menebak informasi yang tidak disebutkan.</div>
+  <div class="footer"><span>Gambar membantu memahami isi cerita.</span><span>04</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">Strategi Menyimak</div><h2>Bagaimana menemukan informasi?</h2>
+  <table><thead><tr><th>Kata tanya</th><th>Informasi yang dicari</th></tr></thead><tbody>
+  <tr><td><b>Siapa?</b></td><td>Tokoh dalam cerita</td></tr>
+  <tr><td><b>Di mana?</b></td><td>Tempat peristiwa</td></tr>
+  <tr><td><b>Kapan?</b></td><td>Waktu peristiwa</td></tr>
+  <tr><td><b>Apa?</b></td><td>Peristiwa atau masalah</td></tr>
+  <tr><td><b>Mengapa?</b></td><td>Alasan terjadinya peristiwa</td></tr>
+  <tr><td><b>Bagaimana?</b></td><td>Tindakan tokoh atau cara masalah diselesaikan</td></tr>
+  </tbody></table>
+  <div class="callout">Tips: dengarkan sampai selesai, ingat kata-kata penting, perhatikan ilustrasi, lalu jawab sesuai isi cerita.</div>
+  <div class="footer"><span>Gunakan kata tanya sebagai petunjuk.</span><span>05</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">Ayo Menyimak</div><h2>Dompet di Bawah Pohon Mangga</h2>
+  <div class="scene">
+    <div><span>🌳</span><div><b>Halaman sekolah</b><br><span class="small">Pohon mangga dan bangku taman</span></div></div>
+    <div><span>👛</span><div><b>Dompet cokelat</b><br><span class="small">Benda yang ditemukan Rani</span></div></div>
+  </div>
+  <p class="story">Pagi itu, udara di SD Negeri 3 Terbanggi Subing terasa sejuk. Setelah bel istirahat berbunyi, Rani dan Bima berjalan menuju halaman sekolah untuk menikmati bekal mereka di bawah pohon mangga.</p>
+  <p class="story">Tiba-tiba, Rani melihat sebuah dompet berwarna cokelat tergeletak di dekat bangku taman. Ia mengambil dompet itu dan memanggil Bima.</p>
+  <p class="story">“Bima, lihat! Ada dompet yang tertinggal. Bagaimana kalau kita mencari pemiliknya?” kata Rani.</p>
+  <p class="note">Dengarkan kelanjutan cerita yang dibacakan guru pada slide berikutnya.</p>
+  <div class="footer"><span>Simak baik-baik tokoh, tempat, dan peristiwa.</span><span>06</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">Ayo Menyimak • Lanjutan</div><h2>Dompet di Bawah Pohon Mangga</h2>
+  <p class="story">Bima mengangguk setuju. Mereka tidak membuka dompet itu untuk mengambil isinya. Sebaliknya, mereka segera membawa dompet tersebut ke ruang guru.</p>
+  <p class="story">Bu Sari, guru kelas VI, memeriksa dompet itu dan menemukan kartu identitas milik Pak Dedi, petugas perpustakaan sekolah. Bu Sari kemudian memanggil Pak Dedi dan menyerahkan dompet tersebut.</p>
+  <p class="story">Pak Dedi merasa sangat lega karena dompetnya berisi uang untuk membeli perlengkapan perpustakaan. Ia berterima kasih kepada Rani dan Bima atas kejujuran mereka.</p>
+  <p class="story">“Kalian telah melakukan hal yang benar. Barang yang bukan milik kita harus dikembalikan kepada pemiliknya,” ujar Bu Sari.</p>
+  <p class="story">Rani dan Bima tersenyum bahagia. Mereka menyadari bahwa kejujuran merupakan perbuatan sederhana yang dapat membawa kebaikan bagi orang lain.</p>
+  <div class="callout"><b>Pesan cerita:</b> Bersikaplah jujur dan kembalikan barang yang ditemukan kepada pemiliknya.</div>
+  <div class="footer"><span>Cerita orisinal untuk kegiatan pembelajaran.</span><span>07</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">Bedah Cerita</div><h2>Informasi penting dalam cerita</h2>
+  <table><thead><tr><th>Unsur</th><th>Informasi</th></tr></thead><tbody>
+  <tr><td>Tokoh</td><td>Rani, Bima, Bu Sari, dan Pak Dedi</td></tr>
+  <tr><td>Tempat</td><td>Halaman sekolah, dekat bangku taman, dan ruang guru</td></tr>
+  <tr><td>Waktu</td><td>Saat jam istirahat pada pagi hari</td></tr>
+  <tr><td>Masalah</td><td>Sebuah dompet tertinggal di dekat bangku taman</td></tr>
+  <tr><td>Penyelesaian</td><td>Rani dan Bima menyerahkan dompet kepada guru hingga kembali kepada pemiliknya</td></tr>
+  <tr><td>Amanat</td><td>Jujur dan bertanggung jawab terhadap barang yang bukan milik kita</td></tr>
+  </tbody></table>
+  <div class="footer"><span>Informasi harus sesuai dengan isi cerita.</span><span>08</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">Cek Pemahaman</div><h2>Diskusikan bersama teman</h2>
+  <ol>
+    <li>Siapa yang pertama kali menemukan dompet?</li>
+    <li>Mengapa Rani dan Bima membawa dompet ke ruang guru?</li>
+    <li>Siapa pemilik dompet tersebut?</li>
+    <li>Apa yang akan terjadi jika dompet itu tidak dikembalikan?</li>
+    <li>Perilaku baik apa yang dapat kamu contoh dari cerita?</li>
+  </ol>
+  <div class="callout">Sampaikan jawaban dengan kalimat lengkap. Jika perlu, ingat kembali bagian cerita yang dibacakan guru.</div>
+  <div class="footer"><span>Berani menjawab, santun saat berdiskusi.</span><span>09</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">Kesimpulan</div><h2>Apa yang kita pelajari?</h2>
+  <div class="grid">
+    <div class="card"><h3>1. Menyimak</h3><p>Dengarkan cerita sampai selesai dengan penuh perhatian.</p></div>
+    <div class="card teal"><h3>2. Menemukan</h3><p>Kenali tokoh, latar, peristiwa, masalah, dan penyelesaian.</p></div>
+    <div class="card gold"><h3>3. Memahami</h3><p>Gunakan informasi dari cerita dan petunjuk gambar.</p></div>
+    <div class="card pink"><h3>4. Mengambil pesan</h3><p>Temukan amanat dan terapkan nilai baik dalam kehidupan.</p></div>
+  </div>
+  <p class="sub"><b>Pesan hari ini:</b> Menyimak dengan cermat membantu kita memahami cerita dan belajar dari pengalaman tokohnya.</p>
+  <div class="footer"><span>Selanjutnya: kerjakan LKPD secara mandiri.</span><span>10</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">LKPD • Lembar Kerja Peserta Didik</div><h2>Menemukan Informasi dalam Teks Sastra</h2>
+  <p style="font-size:clamp(12px,1.3vw,16px);margin:0 0 6px"><b>Nama:</b> __________________________ &nbsp; <b>Kelas:</b> VI A &nbsp; <b>Tanggal:</b> ______________</p>
+  <p style="font-size:clamp(12px,1.25vw,15px);margin:0 0 8px"><b>Petunjuk:</b> Jawablah berdasarkan cerita “Dompet di Bawah Pohon Mangga” yang dibacakan guru.</p>
+  <div class="grid" style="grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;align-items:start">
+    <div>
+      <div class="question"><p><b>1.</b> Siapa saja tokoh dalam cerita?</p><div class="answerline"></div></div>
+      <div class="question"><p><b>2.</b> Di mana Rani menemukan dompet?</p><div class="answerline"></div></div>
+      <div class="question"><p><b>3.</b> Kapan Rani dan Bima menemukan dompet?</p><div class="answerline"></div></div>
+      <div class="question"><p><b>4.</b> Apa yang mereka lakukan setelah menemukan dompet?</p><div class="answerline"></div><div class="answerline"></div></div>
+    </div>
+    <div>
+      <div class="question"><p><b>5.</b> Mengapa Pak Dedi merasa lega?</p><div class="answerline"></div></div>
+      <div class="question"><p><b>6.</b> Bagaimana sikap Rani dan Bima? Jelaskan.</p><div class="answerline"></div><div class="answerline"></div></div>
+      <div class="question"><p><b>7.</b> Apa amanat atau pesan cerita tersebut?</p><div class="answerline"></div></div>
+      <div class="question"><p><b>8.</b> Apa yang kamu lakukan jika menemukan barang milik orang lain?</p><div class="answerline"></div><div class="answerline"></div></div>
+    </div>
+  </div>
+  <div class="callout" style="font-size:clamp(12px,1.3vw,16px);padding:8px 12px"><b>Refleksi:</b> Hari ini saya belajar bahwa __________________________________________________________</div>
+  <div class="footer"><span>Periksa kembali jawaban sebelum dikumpulkan.</span><span>11</span></div>
+</section>
+</main>
+<nav class="controls" aria-label="Navigasi presentasi">
+  <button id="prev" type="button" aria-label="Slide sebelumnya">← Sebelumnya</button>
+  <span id="counter">1 / 11</span>
+  <button id="next" type="button" aria-label="Slide berikutnya">Berikutnya →</button>
+  <button id="print" type="button" title="Cetak atau simpan sebagai PDF">Cetak / PDF</button>
+</nav>
+<script>
+const slides=[...document.querySelectorAll('.slide')];let current=0;
+const counter=document.getElementById('counter'),prev=document.getElementById('prev'),next=document.getElementById('next');
+function show(n){current=Math.max(0,Math.min(slides.length-1,n));slides.forEach((s,i)=>s.classList.toggle('active',i===current));counter.textContent=(current+1)+' / '+slides.length;prev.disabled=current===0;next.disabled=current===slides.length-1;}
+prev.addEventListener('click',()=>show(current-1));next.addEventListener('click',()=>show(current+1));
+document.getElementById('print').addEventListener('click',()=>window.print());
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();show(current+1)}if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();show(current-1)}});
+show(0);
+</script>
+</body>
+</html>
